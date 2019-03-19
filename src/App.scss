@@ -1,0 +1,68 @@
+.App {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+
+    input[type=text] {
+        margin: 0 0.5em 0 0.5em;
+    }
+
+    input[type=text][class=short] {
+        max-width: 5em;
+    }
+
+    input[type=submit], button, select {
+        margin: 0.5em;
+    }
+
+    > div {
+        background-color: #d6d6d6;
+        padding: 1em;
+        margin: 1em;
+        min-width: 20em;
+    }
+
+    form.user-story-form {
+        display: flex;
+        flex-direction: column;
+        background-color: #d6d6d6;
+
+    }
+
+    .user-roles-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .user-story-list {
+        display: flex;
+        
+        .user-story-container {
+            background-color: #bdbdbd;
+            padding: 1em;
+            margin: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+}
+
+.UserRole {
+    background-color: #bdbdbd;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+
+    p {
+        flex-grow: 1;
+    }
+}
+
+.UserStory {
+    display: flex;
+    flex-direction: column;
+}
