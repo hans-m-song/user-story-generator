@@ -287,13 +287,38 @@ class App extends Component {
           <button 
             disabled={this.state.stories.length < 1 && this.state.roles.length < 1}
             onClick={() => this.setState({ showRaw: !this.state.showRaw })}>
-            {(this.state.showRaw) ? 'hide' : 'show'}
+            {(this.state.showRaw) ? 'hide raw' : 'show raw'}
+          </button>
+
+          <button 
+            disabled={this.state.stories.length < 1 && this.state.roles.length < 1}
+            onClick={() => this.setState({ showFormatted: !this.state.showFormatted })}>
+            {(this.state.showFormatted) ? 'hide formatted' : 'show formatted'}
           </button>
 
           {(() => {
             if (this.state.showRaw && (this.state.stories.length > 0 || this.state.roles.length > 0))
               return (
                   <pre>{JSON.stringify({roles: this.state.roles, stories: this.state.stories}, null, 4)}</pre>
+              );
+          })()}
+
+          {(() => {
+            if (this.state.showFormatted && (this.state.stories.length > 0 || this.state.roles.length > 0))
+              return (
+                  <div>
+                    <p><strong>roles:</strong> <br />{this.state.roles.toString()}</p>
+                    <p><strong>stories:</strong> </p>
+                    {this.state.stories.map(story => {
+                      return (
+                        <p>
+                          <ins>As a</ins> {story.role} <br />
+                          <ins>I want</ins> {story.purpose} <br />
+                          <ins>So that</ins> {story.reason}<br />
+                        </p>
+                      );
+                    })}
+                  </div>
               );
           })()}
 
