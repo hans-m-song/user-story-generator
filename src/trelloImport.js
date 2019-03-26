@@ -1,8 +1,8 @@
-JSON.parse($0.innerText).cards.map(card => {
+JSON.parse(document.body.innerText).cards.map(card => {
     const bodyParts = card.name
         .replace(/^\(.*\)|[A-Z]\.\d+/g, '')
         .split(/as a|i want|so that/ig)
-        .filter(el => el !== '')
+        .filter(el => el !== '' && !/^\s+$/.test(el))
         .map(el => el.trim())
     return {
         uuid: card.id,
